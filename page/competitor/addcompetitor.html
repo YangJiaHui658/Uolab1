@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<div class="layui-form layuimini-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label required" >参赛信息类别</label>
+        <div class="layui-input-block" >
+            <select name="competition" lay-filter="competition" lay-verify="required" >
+                <option value="" selected>--请选择参赛类别--</option>
+                <option value="0">java项目实战</option>
+                <option value="1" >web前端开发</option>
+                <option value="2" >layui布局</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">年度</label>
+        <div class="layui-input-block">
+            <input id="year" type="text" name="year" lay-verify="required" lay-reqtext="请选择年度" placeholder="请选择年度" value="" class="layui-input"readonly>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">题目</label>
+        <div class="layui-input-block">
+            <input type="text" id="title" name="textname" lay-verify="required" lay-reqtext="题目不能为空" placeholder="请输入题目" value="" class="layui-input">
+            <tip>2-30 个汉字字母组合</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">组长</label>
+        <div class="layui-input-block">
+            <input type="text" id="name" name="organizater" lay-verify="required" lay-reqtext="组长不能为空" placeholder="请输入组长" value="" class="layui-input">
+            <tip>汉字 2-6 个</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">组员</label>
+        <div class="layui-input-block">
+            <input type="text" id="member" name="members" lay-verify="required" lay-reqtext="组员不能为空" placeholder="请输入组员" value="" class="layui-input">
+            <tip>汉字 2-6 个</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required" >获奖等级</label>
+        <div class="layui-input-block" >
+            <select name="competition" lay-filter="competition" lay-verify="required" >
+                <option value="" selected>无</option>
+                <option value="0">特等</option>
+                <option value="1" >一等</option>
+                <option value="2" >二等</option>
+                <option value="3" >三等</option>
+                <option value="4" >优秀奖</option>
+            </select>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label required">指导老师</label>
+        <div class="layui-input-block">
+            <input type="text" id="teacher" name="teacher" lay-verify="required" lay-reqtext="指导老师不能为空" placeholder="请输入指导老师" value="" class="layui-input">
+            <tip>汉字 2-6 个</tip>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+        </div>
+    </div>
+</div>
+<script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script src="../../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+
+<script>
+    layui.use(['form','laydate','layarea'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            laydate = layui.laydate,
+            layarea = layui.layarea,
+            $ = layui.$;
+        //设置三级联动
+        layarea.render({
+            elem: '#area-picker',
+            // data: {
+            //     province: '广东省',
+            //     city: '深圳市',
+            //     county: '龙岗区',
+            // },
+            change: function (res) {
+                //选择结果
+                console.log(res);
+            }
+        });
+        //验证题目信息格式是否正确
+        $("#title").blur(function () {
+            var title = $("#title").val();
+            var utitle = /^(?![\u4E00-\u9FA5]+$)(?![a-zA-Z]+$)[a-zA-Z\u4E00-\u9FA5]{2,30}$/;
+            if(title.trim().length == 0 || title == null||title == '')
+            {
+                layer.msg("参赛题目不能为空！",{icon:5})
+            }else {
+                if (!utitle.test(title)) {
+                    layer.msg('参赛题目格式不正确！', {icon: 5})
+                }
+            }
+        })
+        //验证组长信息格式是否正确
+        $("#name").blur(function () {
+            var name = $("#name").val();
+            var uname = /^[\u4e00-\u9fa5]{2,6}$/
+            if(name.trim().length == 0 || name == null||name == '')
+            {
+                layer.msg("组长姓名不能为空！",{icon:5})
+            }else {
+                if (!uname.test(name)) {
+                    layer.msg('组长姓名格式不正确！', {icon: 5})
+                }
+            }
+        })
+        //验证组员信息格式是否正确
+        $("#member").blur(function () {
+            var member = $("#member").val();
+            var umember = /^[\u4e00-\u9fa5]{2,6}$/
+            if(member.trim().length == 0 || member == null||member == '')
+            {
+                layer.msg("组员姓名不能为空！",{icon:5})
+            }else {
+                if (!umember.test(member)) {
+                    layer.msg('组员姓名格式不正确！', {icon: 5})
+                }
+            }
+        })
+        //验证组员信息格式是否正确
+        $("#teacher").blur(function () {
+            var teacher = $("#teacher").val();
+            var uteacher = /^[\u4e00-\u9fa5]{2,6}$/
+            if(teacher.trim().length == 0 || teacher == null||teacher == '')
+            {
+                layer.msg("指导老师姓名不能为空！",{icon:5})
+            }else {
+                if (!uteacher.test(teacher)) {
+                    layer.msg('指导老师姓名格式不正确！', {icon: 5})
+                }
+            }
+        })
+        //日期
+        laydate.render({
+            elem: '#date'
+        });
+        laydate.render({
+            elem: '#date1'
+        });
+        //设置入学年份的范围
+        laydate.render({
+            elem: '#year'
+            ,type: 'year',
+            trigger:"click"
+            ,min:-3000
+            ,max: 0
+        });
+
+        //监听提交
+        form.on('submit(saveBtn)', function (data) {
+            var index = layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            }, function () {
+
+                // 关闭弹出层
+                layer.close(index);
+
+                var iframeIndex = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(iframeIndex);
+
+            });
+
+            return false;
+        });
+
+    });
+</script>
+</body>
+</html>

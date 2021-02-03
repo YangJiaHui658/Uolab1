@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../lib/layui-v2.5.5/css/layui.css" media="all">
+    <link rel="stylesheet" href="../../css/public.css" media="all">
+    <style>
+        body {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<!--用户名-->
+<div class="layui-form layuimini-form">
+    <div class="layui-form-item">
+        <label class="layui-form-label required">用户名</label>
+        <div class="layui-input-block">
+            <input type="text" name="username" id="name" lay-verify="required" placeholder="请输入用户名" value="" class="layui-input" >
+            <tip>字母数字组合，开头是字母，3-15 个字符</tip>
+        </div>
+    </div>
+    <!--密码-->
+    <div class="layui-form-item">
+        <label class="layui-form-label required">密码</label>
+        <div class="layui-input-block">
+            <input type="password" name="password" id="psw" lay-verify="required" placeholder="请输入密码"  value="123456" class="layui-input" onblur="checkpsw()">
+            <tip>初始密码为123456，用户登录后可自行修改，密码是 6-20 个字符，由数字和字母构成</tip>
+        </div>
+    </div>
+    <!--角色-->
+    <div class="layui-form-item">
+        <label class="layui-form-label required" >角色</label>
+        <div class="layui-input-block" >
+            <select name="interest" lay-filter="aihao" lay-verify="required" >
+                <option value=""></option>
+                <option value="0">超级管理员</option>
+                <option value="1" >管理员</option>
+                <option value="2" selected="">普通用户</option>
+            </select>
+        </div>
+    </div>
+    <!--用户状态-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">用户状态</label>
+        <div class="layui-input-block">
+            <input type="checkbox" name="close" lay-skin="switch" lay-text="启|禁">
+        </div>
+    </div>
+    <!--真实姓名-->
+    <div class="layui-form-item">
+        <label class="layui-form-label required">真实姓名</label>
+            <div class="layui-input-block">
+                <input type="text"id="realname" name="username" lay-verify="required"  placeholder="请输入真实姓名" value="" class="layui-input" onblur="checkrealname()">
+                <tip>2-6个汉字</tip>
+            </div>
+    </div>
+    <!--院系下拉选择框-->
+    <div class="layui-form-item">
+        <label class="layui-form-label required">请选择</label>
+        <div class="layui-input-inline">
+            <select name="院系">
+                <option value="">院系选择</option>
+                <option value="计算机科学与技术学院">计算机科学与技术学院</option>
+                <option value="经济管理学院">经济管理学院</option>
+                <option value="艺术学院">艺术学院</option>
+            </select>
+        </div>
+        <!--专业下拉选择框-->
+        <div class="layui-input-inline">
+            <select name="专业">
+                <option value="">专业选择</option>
+                <option value="计算机科学与技术">计算机科学与技术</option>
+                <option value="物联网工程">物联网工程</option>
+                <option value="软件工程">软件工程</option>
+                <option value="网络工程">网络工程</option>
+                <option value="工商管理">工商管理</option>
+            </select>
+        </div>
+        <!--班级下拉选择框-->
+        <div class="layui-input-inline">
+            <select name="班级">
+                <option value="">班级选择</option>
+                <option value="物联网192001">物联网192001</option>
+                <option value="物联网192002">物联网192002</option>
+                <option value="物联网192003">物联网192003</option>
+                <option value="物联网192004">物联网192004</option>
+            </select>
+        </div>
+    </div>
+    <!--年级选择框-->
+    <div class="layui-form-item">
+        <label class="layui-form-label required">年级</label>
+        <div class="layui-input-block">
+            <input id="year" type="text" name="year" lay-verify="required" lay-reqtext="年级不能为空" placeholder="请选择入学年份" value="" class="layui-input"readonly>
+        </div>
+    </div>
+    <!--校内职务-->
+    <div class="layui-form-item">
+        <label class="layui-form-label required">校内职务</label>
+        <div class="layui-input-block">
+            <input id="job" type="text" name="job" lay-verify="required" placeholder="请填写校内职位，没有职位请填写无" value="" class="layui-input">
+        </div>
+    </div>
+    <!--性别单选框-->
+    <div class="layui-form-item">
+        <label class="layui-form-label required">性别</label>
+        <div class="layui-input-block">
+            <input type="radio" name="sex" value="男" title="男" checked="">
+            <input type="radio" name="sex" value="女" title="女">
+        </div>
+    </div>
+    <!--手机信息-->
+    <div class="layui-form-item">
+        <label class="layui-form-label required">手机</label>
+        <div class="layui-input-block">
+            <input type="number" id="phone"name="phone" lay-verify="required" lay-reqtext="手机不能为空" placeholder="请输入手机" value="" class="layui-input"onblur="checkphone()">
+        </div>
+    </div>
+    <!--邮箱-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">邮箱</label>
+        <div class="layui-input-block">
+            <input type="email" name="email" placeholder="请输入邮箱" value="" class="layui-input">
+        </div>
+    </div>
+    <!--职业-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">职业</label>
+        <div class="layui-input-block">
+            <input type="text" name="work" placeholder="请输入职业" value="" class="layui-input">
+        </div>
+    </div>
+    <!--备注-->
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">备注</label>
+        <div class="layui-input-block">
+            <textarea name="remark" class="layui-textarea" placeholder="请输入备注"></textarea>
+        </div>
+    </div>
+    <!--保存提交按钮-->
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn layui-btn-normal" lay-submit lay-filter="saveBtn">确认保存</button>
+        </div>
+    </div>
+</div>
+<script src="../../lib/layui-v2.5.5/layui.js" charset="utf-8"></script>
+<script src="../../js/lay-config.js?v=1.0.4" charset="utf-8"></script>
+
+<script>
+    layui.use(['form','laydate','layarea'], function () {
+        var form = layui.form,
+            layer = layui.layer,
+            laydate = layui.laydate,
+            layarea = layui.layarea,
+            $ = layui.$;
+        //设置入学年份的范围
+        laydate.render({
+            elem: '#year'
+            ,type: 'year',
+            trigger:"click"
+            ,min: -3000
+            ,max: 0
+        });
+        //验证用户名格式是否正确
+            $("#name").blur(function () {
+                var name = $("#name").val();
+                var uname = /^(?![0-9]+$)(?![a-zA-Z]+$)[a-zA-Z][a-zA-Z0-9_-]{3,15}$/;
+                if(name.trim().length ==0 || name == null || name == '')
+                {
+                    layer.msg('用户名不能为空!',{icon:5});
+                }else{
+                    if (!uname.test(name))
+                    {
+                        layer.msg('用户名格式不正确！',{icon:5})
+                    }
+                }
+            })
+        //验证密码格式是否正确
+        $("#psw").blur(function () {
+            var psw = $("#psw").val();
+            var upsw = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{2,14}$/
+            if(psw.trim().length == 0 || psw == null||psw == '')
+            {
+                layer.msg("密码不能为空！",{icon:5})
+            }else {
+                if (!upsw.test(psw)) {
+                    layer.msg('密码格式不正确！', {icon: 5})
+                }
+            }
+        })
+        //验证姓名格式是否正确
+        $("#realname").blur(function () {
+            var realname = $("#realname").val();
+            var urealname = /^[\u4e00-\u9fa5]{2,6}$/
+            if(realname.trim().length == 0 || realname == null||realname == '')
+            {
+                layer.msg("姓名不能为空！",{icon:5})
+            }else {
+                if (!urealname.test(realname)) {
+                    layer.msg('姓名格式不正确！', {icon: 5})
+                }
+            }
+        })
+        //验证职务格式是否正确
+        $("#job").blur(function () {
+            var job = $("#job").val();
+            var ujob = /^[\u4e00-\u9fa5]{0,6}$/
+            if(job.trim().length == 0 || job == null||job == '')
+            {
+                layer.msg("职位不能为空，没有请填无！",{icon:5})
+            }else
+            {
+                if(!ujob.test(job))
+                {
+                    layer.msg("格式不正确，只能为汉字！",{icon:5})
+                }
+            }
+        })
+        //验证电话格式是否正确
+        $("#phone").blur(function () {
+            var job = $("#phone").val();
+            var ujob = /^[1][3,4,5,7,8][0-9]{9}$/;
+            if(job.trim().length == 0 || job == null||job == '')
+            {
+                layer.msg("电话不能为空！",{icon:5})
+            }else
+            {
+                if(!ujob.test(job))
+                {
+                    layer.msg("请填入正确的11位手机号码！",{icon:5})
+                }
+            }
+        })
+        //监听提交
+        form.on('submit(saveBtn)', function (data) {
+            var index = layer.alert(JSON.stringify(data.field), {
+                title: '最终的提交信息'
+            }, function () {
+                // 关闭弹出层
+                layer.close(index);
+                var iframeIndex = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(iframeIndex);
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>
