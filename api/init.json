@@ -1,0 +1,151 @@
+{
+  "homeInfo": {
+    "title": "首页",
+    "href": "page/welcome-1.html?t=1"
+  },
+  "logoInfo": {
+    "title": "UOLab",
+    "image": "images/logo.png",
+    "href": ""
+  },
+  "menuInfo": [{
+    "title": "首页",
+    "icon": "fa fa-home",
+    "href": "page/welcome-1.html?t=1",
+    "target": "_self"
+  },
+
+    {
+      "title": "用户管理",
+      "icon": "fa fa-user",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "添加用户",
+          "href": "page/user/addUser.html",
+          "icon": "fa fa-plus-square",
+          "target": "_self"
+        },
+        {
+          "title": "查询用户",
+          "href": "page/user/findUser.html",
+          "icon": "fa fa-search-plus",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "title": "院系管理",
+      "icon": "fa fa-bank",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "添加院系",
+          "href": "page/college/addcollege.html",
+          "icon": "fa fa-plus-square",
+          "target": "_self"
+        },
+        {
+          "title": "添加专业",
+          "href": "page/college/addmajor.html",
+          "icon": "fa fa-search-plus",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "title": "成员管理",
+      "icon": "fa fa-group",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "添加成员",
+          "href": "page/member/addmember.html",
+          "icon": "fa fa-plus-square",
+          "target": "_self"
+        },
+        {
+          "title": "查询成员",
+          "href": "page/member/findmember.html",
+          "icon": "fa fa-search-plus",
+          "target": "_self"
+        },
+        {
+          "title": "成员统计",
+          "href": "page/member/memberstatistics.html",
+          "icon": "fa fa-bar-chart",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "title": "公开课管理",
+      "icon": "fa fa-eye",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "录入公开课",
+          "href": "page/openclass/addopenclass.html",
+          "icon": "fa fa-plus-square",
+          "target": "_self"
+        },
+        {
+          "title": "公开课查询",
+          "href": "page/openclass/findopenclass.html",
+          "icon": "fa fa-search-plus",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "title": "参赛管理",
+      "icon": "fa fa-trophy",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "参赛信息录入",
+          "href": "page/competitor/addcompetitor.html",
+          "icon": "fa fa-plus-square",
+          "target": "_self"
+        },
+        {
+          "title": "参赛信息查询",
+          "href": "page/competitor/findcompetitor.html",
+          "icon": "fa fa-search-plus",
+          "target": "_self"
+        }
+      ]
+    },
+    {
+      "title": "创新学分管理",
+      "icon": "fa fa-mortar-board",
+      "href": "",
+      "target": "_self",
+      "child": [
+        {
+          "title": "录入学分",
+          "href": "page/credit/addcredit.html",
+          "icon": "fa fa-plus-square",
+          "target": "_self"
+        },
+        {
+          "title": "学分查询",
+          "href": "page/credit/findcredit.html",
+          "icon": "fa fa-search-plus",
+          "target": "_self"
+        },
+        {
+          "title": "学分统计",
+          "href": "page/credit/totallcredit.html",
+          "icon": "fa fa-bar-chart",
+          "target": "_self"
+        }
+      ]
+    }
+  ]
+}

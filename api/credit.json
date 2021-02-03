@@ -1,0 +1,56 @@
+{
+  "code": 0,
+  "msg": "",
+  "count": 1000,
+  "data": [
+    {
+      "tstudentID": "123456",
+      "name":"张三",
+      "college": "计算机科学与技术学院",
+      "mark": "100",
+      "event": "回家"
+    },
+    {
+      "tstudentID": "123456",
+      "name":"张三",
+      "college": "计算机科学与技术学院",
+      "mark": "100",
+      "event": "回家"
+    },
+    {
+      "tstudentID": "123456",
+      "name":"张三",
+      "college": "计算机科学与技术学院",
+      "mark": "100",
+      "event": "回家"
+    },
+    {
+      "tstudentID": "123456",
+      "name":"张三",
+      "college": "计算机科学与技术学院",
+      "mark": "100",
+      "event": "回家"
+    },
+    {
+      "tstudentID": "123456",
+      "name":"张三",
+      "college": "计算机科学与技术学院",
+      "mark": "100",
+      "event": "回家"
+    },
+    {
+      "tstudentID": "123456",
+      "name":"张三",
+      "college": "计算机科学与技术学院",
+      "mark": "100",
+      "event": "回家"
+    },
+    {
+      "tstudentID": "123456",
+      "name":"张三",
+      "college": "计算机科学与技术学院",
+      "mark": "100",
+      "event": "回家"
+    }
+    ]
+}
